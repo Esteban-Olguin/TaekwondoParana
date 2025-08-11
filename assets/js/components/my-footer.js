@@ -17,10 +17,10 @@ class MyFooter extends HTMLElement {
             <!-- Columna 2: Enlaces + redes -->
             <div class="col-12 col-md-4">
               <nav class="d-flex flex-wrap justify-content-center justify-content-center gap-2 gap-md-3 mb-3">
-                <a href="/" class="text-secondary text-decoration-none">Inicio</a>
-                <a href="/content/teoria.html" class="text-secondary text-decoration-none">Teoría</a>
-                <a href="/forum/foro.html" class="text-secondary text-decoration-none">Foro</a>
-                <a href="/contact/contacto.html" class="text-secondary text-decoration-none">Contacto</a>
+                <a href="../index.html" class="text-secondary text-decoration-none">Inicio</a>
+                <a href="../content/teoria.html" class="text-secondary text-decoration-none">Teoría</a>
+                <a href="../content/foro.html" class="text-secondary text-decoration-none">Foro</a>
+                <a href="../contact/contacto.html" class="text-secondary text-decoration-none">Contacto</a>
               </nav>
               <div class="d-flex justify-content-center justify-content-center gap-3">
                 <a href="https://facebook.com" target="_blank" class="text-secondary" aria-label="Facebook">

@@ -2,31 +2,113 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaekwondoParaná - Contacto</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/tkd_parana_logo.png" sizes="32x32" />
+
+    <!-- Tipografías Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+
+    <!-- SCSS -->
+    <link rel="stylesheet" href="/assets/scss/styles.css" />
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/84d1de6f8d.js" crossorigin="anonymous"></script>
+
+    <!-- Meta -->
+    <meta name="description"
+        content="Sitio oficial TaekwondoParaná: teoría, foro, evaluaciones y contacto institucional." />
+    <meta name="author" content="Esteban Olguin" />
+
+    <!-- Título -->
+    <title>TaekwondoParaná - Formulario de contacto</title>
 </head>
 
 <body>
-    <main class="main" id="main">
-        <form id="contact-form" class="form mt-4 p-4">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            <button type="reset" class="btn btn-secondary">Limpiar</button>
-        </form>
 
+    <!-- ===== HEADER ===== -->
+    <my-header></my-header>
+
+    <!-- ===== MAIN ===== -->
+    <main id="main" class="section container my-5">
+        <!-- Formulario de contacto -->
+        <form id="contact-form" class="form bg-light rounded-3 shadow-sm p-4 p-md-5">
+
+            <!-- Título del formulario -->
+            <h2 class="mb-4 text-primary fw-bold text-center">Contacto</h2>
+            <p class="text-secondary text-center mb-4">
+                ¿Tenés alguna consulta o sugerencia? Completá el formulario y te responderemos a la brevedad.
+            </p>
+
+            <!-- Campo: Nombre -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+            </div>
+
+            <!-- Campo: Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ej: juan@example.com"
+                    required>
+            </div>
+
+            <!-- Campo: Mensaje -->
+            <div class="mb-3">
+                <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                    placeholder="Escribí tu mensaje acá..." required></textarea>
+            </div>
+
+            <!-- Grupo de botones -->
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <button type="submit" class="btn px-4">
+                    <i class="fas fa-paper-plane me-2 btn--flex"></i>Enviar
+                </button>
+                <button type="reset" class="btn px-4">
+                    <i class="fas fa-eraser me-2 btn--flex"></i>Limpiar
+                </button>
+            </div>
+
+            <!-- Mensaje de privacidad con enlace -->
+            <p class="text-muted small mt-4 text-center">
+                Al enviar este formulario aceptás nuestra
+                <a href="/legal/politica_privacidad.html" class="text-decoration-none text-primary fw-semibold"
+                    target="_blank">
+                    política de privacidad
+                </a> y uso de datos.
+            </p>
+
+        </form>
     </main>
+
+    <!--==================== FOOTER ====================-->
+    <my-footer></my-footer>
+
+    <!--==================== JS ====================-->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Components -->
+    <script src="/assets/js/components/my-header.js"></script>
+    <script src="/assets/js/components/my-footer.js"></script>
 </body>
 
 </html>
