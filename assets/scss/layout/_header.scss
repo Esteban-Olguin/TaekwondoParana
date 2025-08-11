@@ -1,0 +1,72 @@
+.navbar {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.938rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    &-brand {
+        font-size: var($h3-font-size);
+
+        img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+    }
+
+    .nav-link {
+        transition: color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            color: #0099f8;
+        }
+    }
+
+    .dropdown {
+        &-menu {
+            background-color: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+            font-size: 0.813rem;
+            border: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+
+            &-item {
+                color: hsl(230, 8%, 45%);
+                padding: 0.5rem 1rem;
+                transition: background-color 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                    background-color: var(--first-color-lighter);
+                    color: #0099f8;
+                }
+            }
+        }
+    }
+
+    &-toggler {
+        border: none;
+        transition: transform 0.3s ease;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// Responsive
+@media screen and (min-width: 968px) {
+    .navbar {
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}
