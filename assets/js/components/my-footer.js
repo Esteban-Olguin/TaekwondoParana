@@ -38,7 +38,8 @@ class MyFooter extends HTMLElement {
             <!-- Columna 3: Copyright + autor -->
             <div class="col-12 col-md-4 d-flex flex-column align-items-center align-items-md-end">
               <p class="mb-1 small">&copy; ${new Date().getFullYear()} TaekwondoParaná</p>
-              <p class="mb-0 small">Desarrollado por <span class="fw-bold text-primary">Esteban Olguin</span></p>
+              <p class="mb-0 small"> Desarrollado por <span class="fw-bold text-primary"><a href="https://www.instagram.com/emi_olguin_/" target="_blank" class="text-primary text-decoration-none"> Esteban Olguin </a></span>
+              </p>
             </div>
 
           </div>

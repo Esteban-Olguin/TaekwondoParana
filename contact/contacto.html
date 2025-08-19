@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -40,56 +40,60 @@
     <my-header></my-header>
 
     <!-- ===== MAIN ===== -->
-    <main id="main" class="section container my-5">
-        <!-- Formulario de contacto -->
-        <form id="contact-form" class="form bg-light rounded-3 shadow-sm p-4 p-md-5">
+    <main id="main" class="my-5">
 
-            <!-- Título del formulario -->
-            <h2 class="mb-4 text-primary fw-bold text-center">Contacto</h2>
-            <p class="text-secondary text-center mb-4">
-                ¿Tenés alguna consulta o sugerencia? Completá el formulario y te responderemos a la brevedad.
-            </p>
+        <section class="section container">
+            <!-- Formulario de contacto -->
+            <form id="contact-form" class="form bg-light rounded-3 shadow-sm p-4 p-md-5">
 
-            <!-- Campo: Nombre -->
-            <div class="mb-3">
-                <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-            </div>
+                <!-- Título del formulario -->
+                <h2 class="mb-4 text-primary fw-bold text-center">Contacto</h2>
+                <p class="text-secondary text-center mb-4">
+                    ¿Tenés alguna consulta o sugerencia? Completá el formulario y te responderemos a la brevedad.
+                </p>
 
-            <!-- Campo: Email -->
-            <div class="mb-3">
-                <label for="email" class="form-label fw-semibold">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Ej: juan@example.com"
-                    required>
-            </div>
+                <!-- Campo: Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez"
+                        required>
+                </div>
 
-            <!-- Campo: Mensaje -->
-            <div class="mb-3">
-                <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
-                    placeholder="Escribí tu mensaje acá..." required></textarea>
-            </div>
+                <!-- Campo: Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ej: juan@example.com"
+                        required>
+                </div>
 
-            <!-- Grupo de botones -->
-            <div class="d-flex justify-content-center gap-3 mt-4">
-                <button type="submit" class="btn px-4">
-                    <i class="fas fa-paper-plane me-2 btn--flex"></i>Enviar
-                </button>
-                <button type="reset" class="btn px-4">
-                    <i class="fas fa-eraser me-2 btn--flex"></i>Limpiar
-                </button>
-            </div>
+                <!-- Campo: Mensaje -->
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                        placeholder="Escribí tu mensaje acá..." required></textarea>
+                </div>
 
-            <!-- Mensaje de privacidad con enlace -->
-            <p class="text-muted small mt-4 text-center">
-                Al enviar este formulario aceptás nuestra
-                <a href="/legal/politica_privacidad.html" class="text-decoration-none text-primary fw-semibold"
-                    target="_blank">
-                    política de privacidad
-                </a> y uso de datos.
-            </p>
+                <!-- Grupo de botones -->
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <button type="submit" class="btn px-4">
+                        <i class="fas fa-paper-plane me-2 btn--flex"></i>Enviar
+                    </button>
+                    <button type="reset" class="btn px-4">
+                        <i class="fas fa-eraser me-2 btn--flex"></i>Limpiar
+                    </button>
+                </div>
 
-        </form>
+                <!-- Mensaje de privacidad con enlace -->
+                <p class="text-muted small mt-4 text-center">
+                    Al enviar este formulario aceptás nuestra
+                    <a href="/legal/politica_privacidad.html" class="text-decoration-none text-primary fw-semibold"
+                        target="_blank">
+                        política de privacidad
+                    </a> y uso de datos.
+                </p>
+
+            </form>
+        </section>
     </main>
 
     <!--==================== FOOTER ====================-->
