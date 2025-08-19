@@ -1,0 +1,100 @@
+.accordion {
+    border-radius: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #f8fafc 0%, #e3e9f3 100%);
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    &-header {
+        .accordion-button {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.05);
+
+            &:hover,
+            &:focus {
+                background: var(--first-color-light);
+                color: var(--first-color);
+            }
+
+            &:not(.collapsed) {
+                background: var(--first-color-second);
+                color: #fff;
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                margin-left: auto;
+                width: 1.25rem;
+                height: 1.25rem;
+                transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+            }
+
+            &.collapsed::after {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        animation: fadeInAccordion 0.5s cubic-bezier(.4,2,.6,1);
+        border-top: 1px solid #e3e9f3;
+
+        .accordion-body {
+            padding: 1.5rem 2rem;
+            background: var(--container-color);
+            border-radius: 0 0 1rem 1rem;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.04);
+
+            ul {
+                padding-left: 1.5rem;
+                margin-bottom: 0;
+
+                li {
+                    margin-bottom: 0.75rem;
+                    position: relative;
+                    padding-left: 1.25rem;
+                    font-size: 1rem;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0.5em;
+                        width: 0.6em;
+                        height: 0.6em;
+                        background: var(--first-color-lighter);
+                        border-radius: 50%;
+                        box-shadow: 0 1px 4px rgba(13, 110, 253, 0.15);
+                    }
+                }
+            }
+
+            strong {
+                color: var(--first-color);
+            }
+        }
+    }
+}
+
+@keyframes fadeInAccordion {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

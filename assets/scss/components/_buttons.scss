@@ -11,10 +11,13 @@
     &:hover {
         background-color: var(--first-color-alt);
         color: var(--container-color);
+
+        .btn__icon {
+            transform: translateX(3px);
+        }
     }
 
     &__icon {
-        font-size: 1.25rem;
         margin-left: $m-0-5;
         transition: .3s;
     }

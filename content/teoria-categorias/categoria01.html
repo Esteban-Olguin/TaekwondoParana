@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/tkd_parana_logo.png" sizes="32x32" />
+
+    <!-- Tipografías Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+
+    <!-- SCSS -->
+    <link rel="stylesheet" href="/assets/scss/styles.css" />
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/84d1de6f8d.js" crossorigin="anonymous"></script>
+
+    <!-- Meta -->
+    <meta name="description"
+        content="Sitio oficial TaekwondoParaná: teoría, foro, evaluaciones y contacto institucional." />
+    <meta name="author" content="Esteban Olguin" />
+
+    <!-- Título -->
+    <title>TaekwondoParaná - A01</title>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <my-header></my-header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main container my-5">
+        <section class="section">
+
+            <!-- Section Title -->
+            <div class="row justify-content-center mb-3">
+                <div class="col-lg-8">
+                    <h1 class="text-center mb-3 display-5 fw-bold">Teoría del Taekwondo</h1>
+                </div>
+            </div>
+
+            <!-- Teoría de Cinturón blanco para puntas amarillas -->
+            <div class="container teoria-blanco">
+                <h3 class="mb-4">
+                    <span>Teoría de Cinturón Blanco</span>
+                    para <span class="text-warning">puntas amarillas</span>
+                </h3>
+
+                <div class="accordion" id="accordionTeoriaTKD-blanco">
+
+                    <!-- Ítem 1: Significado del Taekwondo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSignificado">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSignificado" aria-expanded="true"
+                                aria-controls="collapseSignificado">
+                                Significado del Taekwondo
+                            </button>
+                        </h2>
+
+                        <div id="collapseSignificado" class="accordion-collapse collapse show"
+                            aria-labelledby="headingSignificado">
+                            <div class="accordion-body">
+                                <p>
+                                    Es la utilización científica del cuerpo en el método de autodefensa. Un cuerpo que
+                                    ha
+                                    adquirido el máximo de su rendimiento a través de un entrenamiento, tanto físico
+                                    como
+                                    mental, es un arte de defensa personal.
+                                </p>
+                                <p>
+                                    Taekwon-Do se divide en dos partes:<br>
+                                    <strong>Taekwon</strong> (relativo a la parte física) y <strong>Do</strong>
+                                    (relativo al
+                                    aspecto moral y espiritual).
+                                </p>
+                                <p>Literalmente significa:</p>
+                                <ul>
+                                    <li><strong>TAE:</strong> Acción de golpear y saltar con los pies.</li>
+                                    <li><strong>KWON:</strong> Acción de golpear con la mano y el puño.</li>
+                                    <li><strong>DO:</strong> Arte o camino espiritual que rige el estilo o modo de vida,
+                                        según
+                                        preceptos éticos y morales.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 2: Principios del Taekwondo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseBlanco" aria-expanded="true" aria-controls="collapseBlanco">
+                                Principios del Taekwondo
+                            </button>
+                        </h2>
+                        <div id="collapseBlanco" class="accordion-collapse collapse show"
+                            aria-labelledby="headingBlanco">
+                            <div class="accordion-body">
+                                <ul class="mb-0">
+                                    <li><strong>Cortesía:</strong> Buen modo y trato hacia uno mismo y a los demás.</li>
+                                    <li><strong>Integridad:</strong> Diferenciar entre lo correcto y lo incorrecto.</li>
+                                    <li><strong>Perseverancia:</strong> Capacidad de alcanzar un objetivo a través del
+                                        tiempo.
+                                    </li>
+                                    <li><strong>Autocontrol:</strong> Capacidad de dominar las propias emociones y el
+                                        propio
+                                        cuerpo.</li>
+                                    <li><strong>Espíritu Indómito / Indomable:</strong> Fortalecer el espíritu para
+                                        enfrentar
+                                        situaciones límite.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 3: Juramento del Taekwondo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAmarillo">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseAmarillo" aria-expanded="true"
+                                aria-controls="collapseAmarillo">
+                                Juramento del Taekwondo
+                            </button>
+                        </h2>
+                        <div id="collapseAmarillo" class="accordion-collapse collapse show"
+                            aria-labelledby="headingAmarillo">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>"Seguiré los principios del Taekwon-Do"</li>
+                                    <li>"Respetaré al instructor y a los Seniors"</li>
+                                    <li>"Jamás haré mal uso del Taekwon-Do"</li>
+                                    <li>"Seré un campeón de la libertad y la justicia"</li>
+                                    <li>"Crearé un mundo mejor"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Teoría de Cinturón puntas amarillas para amarillos -->
+            <div class="container teoria-puntas_amarillas">
+                <h3 class="mb-4">
+                    <span>Teoría de Cinturón puntas amarillas</span>
+                    para <span class="text-warning">Cinturón Amarillo</span>
+                </h3>
+
+                <div class="accordion" id="accordionPuntasAmarillas">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPuntaAmarilla1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePuntaAmarilla1" aria-expanded="true"
+                                aria-controls="collapsePuntaAmarilla1">
+                                Secretos del entrenamiento
+                            </button>
+                        </h2>
+                        <div id="collapsePuntaAmarilla1" class="accordion-collapse collapse show"
+                            aria-labelledby="headingPuntaAmarilla1">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>"Estudiar a fondo la teoría del poder."</li>
+                                    <li>"Comprender el objetivo y significado de cada movimiento."</li>
+                                    <li>"Realizar los movimientos de los ojos, de las manos, de los pies y la
+                                        respiración en una acción coordinada y única."</li>
+                                    <li>"Elegir sus armas de ataque de modo apropiado para cada punto vital."</li>
+                                    <li>"Familiarizarse con la distancia de ángulos correctos en ataque o defensa."</li>
+                                    <li>"Mantener piernas y brazos ligeramente flexionados al realizar el movimiento."
+                                    </li>
+                                    <li>"Cada movimiento debe empezar con una acción hacia atrás, con pocas excepciones.
+                                        Sin embargo, una vez que el movimiento ha empezado, no debe pararse antes de
+                                        haber alcanzado el blanco."</li>
+                                    <li>"Crear una onda sinusoide durante el movimiento, flexionando apropiadamente las
+                                        rodillas."</li>
+                                    <li>"Exhalar corta y bruscamente en el momento de cada golpe, salvo en caso de
+                                        movimiento conectado."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <my-footer></my-footer>
+
+    <!--==================== JS ====================-->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Components -->
+    <script src="/assets/js/components/my-header.js"></script>
+    <script src="/assets/js/components/my-footer.js"></script>
+</body>
+
+</html>
