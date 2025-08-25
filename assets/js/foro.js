@@ -1,7 +1,9 @@
 import { auth, db } from "/assets/js/firebase-init.js";
-import {
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+// Importa funciones de autenticación
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+// Importa funciones de Firestore
 import {
     collection,
     addDoc,
@@ -14,6 +16,7 @@ import {
     deleteDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+// Elementos del DOM
 const listaTemas = document.getElementById("temas-ul");
 const crearTema = document.getElementById("crear-tema");
 const mensajeLogin = document.getElementById("mensaje-login");
@@ -23,18 +26,20 @@ const busquedaInput = document.getElementById("busqueda-input");
 
 let usuarioActual = null;
 
+// Detecta si hay sesión activa
 onAuthStateChanged(auth, async (user) => {
     usuarioActual = user;
 
     if (user) {
+        // Muestra el formulario para crear tema
         crearTema.classList.remove("d-none");
         mensajeLogin.classList.add("d-none");
 
+        // Maneja el envío del nuevo tema
         formNuevoTema.addEventListener("submit", async (e) => {
             e.preventDefault();
             const titulo = document.getElementById("titulo-tema").value.trim();
             const contenido = document.getElementById("contenido-tema").value.trim();
-
             if (!titulo || !contenido) return;
 
             await addDoc(collection(db, "foro-temas"), {
@@ -48,6 +53,7 @@ onAuthStateChanged(auth, async (user) => {
             cargarTemas();
         });
     } else {
+        // Oculta el formulario si no hay sesión
         crearTema.classList.add("d-none");
         mensajeLogin.classList.remove("d-none");
     }
@@ -55,6 +61,7 @@ onAuthStateChanged(auth, async (user) => {
     cargarTemas();
 });
 
+// Maneja la búsqueda de temas
 busquedaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const termino = busquedaInput.value.trim().toLowerCase();
@@ -83,12 +90,14 @@ busquedaForm.addEventListener("submit", async (e) => {
     renderTemas(resultados);
 });
 
+// Carga todos los temas desde Firestore
 async function cargarTemas() {
     const temasRef = query(collection(db, "foro-temas"), orderBy("fecha", "desc"));
     const snapshot = await getDocs(temasRef);
     renderTemas(snapshot.docs);
 }
 
+// Renderiza los temas y sus respuestas
 async function renderTemas(docs) {
     listaTemas.innerHTML = "";
 
@@ -120,6 +129,7 @@ async function renderTemas(docs) {
 
         listaTemas.appendChild(item);
 
+        // Carga respuestas del tema
         const respuestasRef = collection(db, "foro-temas", temaId, "respuestas");
         const respuestasSnap = await getDocs(respuestasRef);
         const respuestasDiv = document.getElementById(`respuestas-${temaId}`);
@@ -136,6 +146,7 @@ async function renderTemas(docs) {
         <small class="text-muted">— ${r.autor} | ${fecha}</small>
       `;
 
+            // Muestra botones de edición si el autor es el usuario actual
             if (usuarioActual && r.autor === (usuarioActual.displayName || usuarioActual.email)) {
                 respuestaEl.innerHTML += `
           <div class="mt-2">
@@ -149,6 +160,7 @@ async function renderTemas(docs) {
         });
     }
 
+    // Maneja envío de nuevas respuestas
     document.querySelectorAll(".form-respuesta").forEach(form => {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -168,6 +180,7 @@ async function renderTemas(docs) {
         });
     });
 
+    // Maneja edición de respuestas
     document.querySelectorAll(".editar-respuesta").forEach(btn => {
         btn.addEventListener("click", async () => {
             const temaId = btn.dataset.tema;
@@ -181,6 +194,7 @@ async function renderTemas(docs) {
         });
     });
 
+    // Maneja eliminación de respuestas
     document.querySelectorAll(".eliminar-respuesta").forEach(btn => {
         btn.addEventListener("click", async () => {
             const temaId = btn.dataset.tema;
@@ -193,6 +207,7 @@ async function renderTemas(docs) {
         });
     });
 
+    // Maneja eliminación de temas y sus respuestas
     document.querySelectorAll(".eliminar-tema").forEach(btn => {
         btn.addEventListener("click", async () => {
             const temaId = btn.dataset.id;

@@ -97,13 +97,16 @@
             </form>
         </section>
 
+        <!-- Script para manejar el formulario de inicio de sesión -->
         <script type="module">
+            // Importar Firebase App y Auth
             import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
             import {
                 getAuth,
                 signInWithEmailAndPassword
             } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+            // Configuración de Firebase
             const firebaseConfig = {
                 apiKey: "AIzaSyABTVN53G-WVa_9917ehc0AEkvFCv2OTvU",
                 authDomain: "taekwondoparana-b8e30.firebaseapp.com",
@@ -114,22 +117,34 @@
                 measurementId: "G-39ZVM00JSL"
             };
 
+            // Inicializar Firebase
             const app = initializeApp(firebaseConfig);
             const auth = getAuth(app);
 
+            // Capturar el formulario
             const form = document.getElementById("login-form");
+
+            // Escuchar el envío del formulario
             form.addEventListener("submit", async (event) => {
                 event.preventDefault();
 
+                // Obtener datos del formulario
                 const email = form.email.value.trim();
                 const password = form.password.value.trim();
 
                 try {
+                    // Iniciar sesión con Firebase
                     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+                    // Obtener nombre del usuario
                     const nombre = userCredential.user.displayName || "Usuario";
                     console.log("Bienvenido:", nombre);
+
+                    // Redirigir al inicio
                     window.location.href = "/index.html";
+
                 } catch (error) {
+                    // Mostrar error en pantalla
                     const errorBox = document.createElement("div");
                     errorBox.className = "text-danger text-center mt-3";
                     errorBox.textContent = error.message;
