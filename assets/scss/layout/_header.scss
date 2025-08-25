@@ -32,16 +32,15 @@
             border: none;
             padding: 0.5rem 0;
             transition: all 0.3s ease;
+        }
 
-            &-item {
-                color: hsl(230, 8%, 45%);
-                padding: 0.5rem 1rem;
-                transition: background-color 0.3s ease, color 0.3s ease;
+        &-item {
+            color: hsl(230, 8%, 45%);
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
 
-                &:hover {
-                    background-color: var(--first-color-lighter);
-                    color: #0099f8;
-                }
+            &:hover {
+                color: #0099f8;
             }
         }
     }

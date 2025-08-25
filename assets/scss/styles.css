@@ -164,13 +164,12 @@ b {
   padding: 0.5rem 0;
   transition: all 0.3s ease;
 }
-.navbar .dropdown-menu-item {
+.navbar .dropdown-item {
   color: hsl(230, 8%, 45%);
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.navbar .dropdown-menu-item:hover {
-  background-color: var(--first-color-lighter);
+.navbar .dropdown-item:hover {
   color: #0099f8;
 }
 .navbar-toggler {
