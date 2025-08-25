@@ -1,0 +1,13 @@
+/login                 /auth/login.html               200
+/registro              /auth/registro.html            200
+/recuperar             /auth/recuperar_password.html  200
+
+/contacto              /contact/contacto.html         200
+
+/teoria                /content/teoria.html           200
+/foro                  /content/foro.html             200
+/sedes                 /content/sedes.html            200
+/cronograma            /content/cronograma.html       200
+/categorias            /content/teoria-categorias/categoria01.html 200
+
+/404                   /legal/404.html                404
