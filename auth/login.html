@@ -40,8 +40,8 @@
     <my-header></my-header>
 
     <!-- ===== MAIN ===== -->
-    <main id="main" class="my-5">
-        
+    <main id="main" class="main my-5">
+
         <section class="section container">
             <!-- Formulario de inicio de sesión -->
             <form id="login-form" class="bg-light rounded-3 shadow-sm p-4 p-md-5">
@@ -96,6 +96,48 @@
 
             </form>
         </section>
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+            import {
+                getAuth,
+                signInWithEmailAndPassword
+            } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyABTVN53G-WVa_9917ehc0AEkvFCv2OTvU",
+                authDomain: "taekwondoparana-b8e30.firebaseapp.com",
+                projectId: "taekwondoparana-b8e30",
+                storageBucket: "taekwondoparana-b8e30.appspot.com",
+                messagingSenderId: "3478244979",
+                appId: "1:3478244979:web:30460edc2b6a4166452406",
+                measurementId: "G-39ZVM00JSL"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            const form = document.getElementById("login-form");
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const email = form.email.value.trim();
+                const password = form.password.value.trim();
+
+                try {
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    const nombre = userCredential.user.displayName || "Usuario";
+                    console.log("Bienvenido:", nombre);
+                    window.location.href = "/index.html";
+                } catch (error) {
+                    const errorBox = document.createElement("div");
+                    errorBox.className = "text-danger text-center mt-3";
+                    errorBox.textContent = error.message;
+                    form.appendChild(errorBox);
+                }
+            });
+        </script>
+
     </main>
 
     <!--==================== FOOTER ====================-->
@@ -113,8 +155,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Components -->
-    <script src="/assets/js/components/my-header.js"></script>
-    <script src="/assets/js/components/my-footer.js"></script>
+    <script type="module" src="/assets/js/components/my-header.js"></script>
+    <script type="module" src="/assets/js/components/my-footer.js"></script>
+
+    <!-- Firebase -->
+    <script type="module" src="/assets/js/firebase-init.js"></script>
 </body>
 
 </html>

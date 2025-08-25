@@ -64,9 +64,9 @@
                                 <p class="card-text mb-4 flex-grow-1">
                                     Explora los orígenes y la evolución del Taekwondo a lo largo del tiempo.
                                 </p>
-                                <a href="/assets/docs/teoria/taekwondo_history.pdf" class="btn mt-auto w-100"
-                                    target="_blank" rel="noopener">
-                                    Leer más
+                                <a href="#" class="btn mt-auto w-100 disabled" tabindex="-1" aria-disabled="true">
+                                    <i class="fa-solid fa-lock me-2"></i>
+                                    Próximamente
                                 </a>
                             </div>
                         </div>
@@ -198,8 +198,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Components -->
-    <script src="/assets/js/components/my-header.js"></script>
-    <script src="/assets/js/components/my-footer.js"></script>
+    <script type="module" src="/assets/js/components/my-header.js"></script>
+    <script type="module" src="/assets/js/components/my-footer.js"></script>
+
+    <!-- Firebase -->
+    <script type="module" src="/assets/js/firebase-init.js"></script>
 </body>
 
 </html>

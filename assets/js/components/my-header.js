@@ -1,3 +1,6 @@
+import { auth } from "/assets/js/firebase-init.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
 class MyHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -14,9 +17,7 @@ class MyHeader extends HTMLElement {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="/index.html">Inicio</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="formacionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Formación
@@ -35,14 +36,12 @@ class MyHeader extends HTMLElement {
                     <li><a class="dropdown-item" href="/content/sedes.html">Sedes institucionales</a></li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/contact/contacto.html">Contacto</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="/contact/contacto.html">Contacto</a></li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="cuentaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Cuenta
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-end bg-light" aria-labelledby="cuentaDropdown">
+                  <ul class="dropdown-menu dropdown-menu-end bg-light" id="cuenta-dropdown" aria-labelledby="cuentaDropdown">
                     <li><a class="dropdown-item" href="/auth/login.html">Iniciar sesión</a></li>
                     <li><a class="dropdown-item" href="/auth/registro.html">Registro</a></li>
                   </ul>
@@ -53,6 +52,30 @@ class MyHeader extends HTMLElement {
         </nav>
       </header>
     `;
+
+    // Actualizar dropdown según sesión
+    onAuthStateChanged(auth, (user) => {
+      const cuentaDropdown = this.querySelector("#cuenta-dropdown");
+      if (!cuentaDropdown) return;
+
+      if (user) {
+        const nombre = user.displayName || user.email;
+
+        cuentaDropdown.innerHTML = `
+          <li><a class="dropdown-item disabled">Bienvenido, ${nombre}</a></li>
+          <li><a class="dropdown-item" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+        `;
+
+        this.querySelector("#cerrar-sesion").addEventListener("click", () => {
+          signOut(auth).then(() => location.reload());
+        });
+      } else {
+        cuentaDropdown.innerHTML = `
+          <li><a class="dropdown-item" href="/auth/login.html">Iniciar sesión</a></li>
+          <li><a class="dropdown-item" href="/auth/registro.html">Registro</a></li>
+        `;
+      }
+    });
   }
 }
 

@@ -39,27 +39,23 @@
     <!-- ===== HEADER ===== -->
     <my-header></my-header>
 
-    <main class="main" id="main">
+    <main class="main my-5" id="main">
         <section class="section container">
-            <form id="register-form" class="bg-light rounded-3 shadow-sm p-4 p-md-5" action="/auth/registro"
-                method="POST" autocomplete="off" novalidate>
-                <!-- Título -->
+            <form id="register-form" class="bg-light rounded-3 shadow-sm p-4 p-md-5" autocomplete="off" novalidate>
                 <h2 class="mb-4 text-primary fw-bold text-center">Crear cuenta</h2>
                 <p class="text-secondary text-center mb-4">
                     Registrate para participar en el foro, consultar evaluaciones y gestionar tu perfil institucional.
                 </p>
 
-                <!-- Campo: Nombre completo -->
                 <div class="mb-3">
                     <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez"
-                        required minlength="2" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+">
+                        required minlength="2" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\\s]+">
                     <div class="invalid-feedback">
                         Ingrese un nombre válido (solo letras, mínimo 2 caracteres).
                     </div>
                 </div>
 
-                <!-- Campo: Correo electrónico -->
                 <div class="mb-3">
                     <label for="email" class="form-label fw-semibold">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Ej: juan@example.com"
@@ -69,18 +65,16 @@
                     </div>
                 </div>
 
-                <!-- Campo: Contraseña -->
                 <div class="mb-3">
                     <label for="password" class="form-label fw-semibold">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password"
                         placeholder="Mínimo 8 caracteres, letras y números" required minlength="8" maxlength="64"
-                        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$" autocomplete="new-password">
+                        pattern="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$" autocomplete="new-password">
                     <div class="invalid-feedback">
                         La contraseña debe tener al menos 8 caracteres, incluir letras y números.
                     </div>
                 </div>
 
-                <!-- Campo: Confirmar contraseña -->
                 <div class="mb-3">
                     <label for="confirm_password" class="form-label fw-semibold">Confirmar contraseña</label>
                     <input type="password" class="form-control" id="confirm_password" name="confirm_password"
@@ -91,13 +85,12 @@
                     </div>
                 </div>
 
-                <!-- Términos y condiciones -->
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="terms" required>
                     <label class="form-check-label small" for="terms">
-                        Acepto los 
+                        Acepto los
                         <a href="../legal/terminos.html" target="_blank">Términos y Condiciones</a>
-                        y la 
+                        y la
                         <a href="../legal/privacidad.html" target="_blank">Política de Privacidad</a>
                     </label>
                     <div class="invalid-feedback">
@@ -105,7 +98,6 @@
                     </div>
                 </div>
 
-                <!-- Botones -->
                 <div class="d-flex justify-content-center gap-3 mt-3">
                     <button type="submit" class="btn btn-primary px-4">
                         <i class="fas fa-user-plus me-2 btn--flex"></i>Registrarse
@@ -115,11 +107,12 @@
                     </button>
                 </div>
 
-                <!-- Iniciar sesión -->
                 <p class="text-muted small mt-4 text-center">
                     ¿Ya tenés cuenta?
                     <a href="/auth/login.html" class="fw-semibold text-decoration-none">Iniciá sesión acá</a>
                 </p>
+
+                <div id="registro-error" class="text-danger text-center mt-3"></div>
             </form>
         </section>
 
@@ -127,11 +120,11 @@
             // Bootstrap validation y validación de contraseñas
             (function () {
                 'use strict';
-                var form = document.getElementById('register-form');
+                const form = document.getElementById('register-form');
                 form.addEventListener('submit', function (event) {
-                    var pwd = form.querySelector('#password');
-                    var cpwd = form.querySelector('#confirm_password');
-                    var feedback = form.querySelector('#confirmPasswordFeedback');
+                    const pwd = form.querySelector('#password');
+                    const cpwd = form.querySelector('#confirm_password');
+                    const feedback = form.querySelector('#confirmPasswordFeedback');
                     if (pwd.value !== cpwd.value) {
                         cpwd.setCustomValidity('Las contraseñas no coinciden');
                         feedback.style.display = 'block';
@@ -147,8 +140,54 @@
                 }, false);
             })();
         </script>
-        </section>
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+            import {
+                getAuth,
+                createUserWithEmailAndPassword,
+                updateProfile
+            } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyABTVN53G-WVa_9917ehc0AEkvFCv2OTvU",
+                authDomain: "taekwondoparana-b8e30.firebaseapp.com",
+                projectId: "taekwondoparana-b8e30",
+                storageBucket: "taekwondoparana-b8e30.appspot.com",
+                messagingSenderId: "3478244979",
+                appId: "1:3478244979:web:30460edc2b6a4166452406",
+                measurementId: "G-39ZVM00JSL"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            const form = document.getElementById("register-form");
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const nombre = form.nombre.value.trim();
+                const email = form.email.value.trim();
+                const password = form.password.value.trim();
+                const confirm = form.confirm_password.value.trim();
+                const errorBox = document.getElementById("registro-error");
+
+                if (password !== confirm) return;
+
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    await updateProfile(userCredential.user, {
+                        displayName: nombre
+                    });
+                    window.location.href = "/index.html";
+                } catch (error) {
+                    errorBox.textContent = error.message;
+                    errorBox.classList.add("text-danger", "mt-3");
+                }
+            });
+        </script>
     </main>
+
 
     <!--==================== FOOTER ====================-->
     <my-footer></my-footer>
@@ -165,8 +204,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Components -->
-    <script src="/assets/js/components/my-header.js"></script>
-    <script src="/assets/js/components/my-footer.js"></script>
+    <script type="module" src="/assets/js/components/my-header.js"></script>
+    <script type="module" src="/assets/js/components/my-footer.js"></script>
+
+    <!-- Firebase -->
+    <script type="module" src="/assets/js/firebase-init.js"></script>
 </body>
 
 </html>

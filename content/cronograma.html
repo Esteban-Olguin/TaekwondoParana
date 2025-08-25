@@ -42,7 +42,7 @@
         <section class="section">
             <!-- ===== CRONOGRAMA ===== -->
             <div class="container py-5">
-                <h2 class="text-center mb-4">Cronograma de Eventos</h2>
+                <h2 class="mb-4 text-primary fw-bold text-center">Cronograma de Eventos</h2>
                 <p class="text-center">Consulta aquí los próximos eventos de TaekwondoParaná.</p>
                 <div id="lista-eventos"></div>
             </div>
@@ -69,8 +69,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Components -->
-    <script src="/assets/js/components/my-header.js"></script>
-    <script src="/assets/js/components/my-footer.js"></script>
+    <script type="module" src="/assets/js/components/my-header.js"></script>
+    <script type="module" src="/assets/js/components/my-footer.js"></script>
+
+    <!-- Firebase -->
+    <script type="module" src="/assets/js/firebase-init.js"></script>
 </body>
 
 </html>
