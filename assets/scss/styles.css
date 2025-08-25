@@ -22,8 +22,10 @@
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
   --yellow: hsl(59, 100%, 50%);
   --green: #14b414;
+  --dark-green: #0f9b0f;
   --blue: #0099f8;
   --red: #ff4524;
+  --dark-red: #c72c2c;
 }
 
 /*========== Font and typography ==========*/
@@ -112,6 +114,23 @@ b {
 }
 .section__title, .section__subtitle {
   text-align: center;
+}
+
+/* Colores de los Botones del foro */
+.eliminar-respuesta {
+  background-color: var(--red) !important;
+  transition: 0.2s;
+}
+.eliminar-respuesta:hover {
+  background-color: var(--dark-red) !important;
+}
+
+.enviar-respuesta {
+  background-color: var(--green) !important;
+  transition: 0.2s;
+}
+.enviar-respuesta:hover {
+  background-color: var(--dark-green) !important;
 }
 
 /* ===== LAYOUT ===== */
@@ -345,5 +364,4 @@ b {
     opacity: 1;
     transform: translateY(0);
   }
-}
-/* ===== PAGES ===== *//*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

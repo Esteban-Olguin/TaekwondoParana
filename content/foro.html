@@ -35,38 +35,59 @@
 </head>
 
 <body>
-
     <!-- ===== HEADER ===== -->
     <my-header></my-header>
 
-    <main class="main" id="main">
-        <section class="foro section mt-5">
-            <div class="container">
-                <h2 class="mb-4 text-primary fw-bold text-center">Foro de TaekwondoParaná</h2>
-                <p class="lead">Bienvenido al foro de discusión de TaekwondoParaná. Aquí puedes compartir tus ideas,
-                    hacer preguntas y conectarte con otros miembros de la comunidad.</p>
+    <main class="main py-5" id="main">
+        <section class="section container">
+            <!-- Título del foro -->
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Foro de TaekwondoParaná</h2>
+                <p class="lead text-muted">
+                    Compartí tus ideas y conectate con otros practicantes.
+                </p>
+            </div>
+
+            <!-- Crear nuevo tema -->
+            <div id="crear-tema" class="card p-4 mb-5 d-none">
+                <h5 class="fw-semibold mb-3">Crear nuevo tema</h5>
+                <form id="form-nuevo-tema">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="titulo-tema" placeholder="Título del tema"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="contenido-tema" rows="4" placeholder="Escribí tu mensaje..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Publicar tema</button>
+                </form>
+            </div>
+
+            <!-- Lista de temas -->
+            <div id="lista-temas" class="mb-5">
+
                 <div class="mb-4">
-                    <a href="#" class="btn btn-primary">Crear nuevo tema</a>
-                </div>
-                <div class="foro-temas">
-                    <h2 class="h5">Temas recientes</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Tema 1</a></li>
-                        <li><a href="#">Tema 2</a></li>
-                        <li><a href="#">Tema 3</a></li>
-                    </ul>
-                </div>
-                <div class="foro-busqueda">
-                    <h2 class="h5">Buscar en el foro</h2>
-                    <form action="#" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Buscar..."
-                                aria-label="Buscar en el foro">
-                            <button class="btn" type="submit">Buscar</button>
-                        </div>
+                    <form id="busqueda-form" class="input-group">
+                        <input type="text" class="form-control" id="busqueda-input"
+                            placeholder="Buscar temas por título o autor..." />
+                        <button class="btn" type="submit">
+                            <i class="fas fa-search me-1"></i>Buscar
+                        </button>
                     </form>
                 </div>
 
+
+                <h5 class="fw-semibold mb-3">Temas recientes</h5>
+                <ul class="list-group" id="temas-ul"></ul>
+            </div>
+
+            <!-- Mensaje para no logueados -->
+            <div id="mensaje-login" class="alert alert-warning text-center d-none">
+                <i class="fas fa-lock me-2"></i>Para participar en el foro, iniciá
+                sesión o registrate.
+                <a href="/auth/login.html" class="btn btn-sm ms-2">Iniciar sesión</a>
+                <a href="/auth/registro.html" class="btn btn-sm ms-2">Registrarse</a>
             </div>
         </section>
     </main>
@@ -91,6 +112,8 @@
 
     <!-- Firebase -->
     <script type="module" src="/assets/js/firebase-init.js"></script>
+
+    <script type="module" src="/assets/js/foro.js"></script>
 </body>
 
 </html>

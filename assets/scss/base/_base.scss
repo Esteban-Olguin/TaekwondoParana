@@ -88,3 +88,22 @@ b {
         text-align: center;
     }
 }
+
+/* Colores de los Botones del foro */
+.eliminar-respuesta {
+    background-color: var(--red) !important;
+    transition: .2s;
+
+    &:hover {
+        background-color: var(--dark-red) !important;
+    }
+}
+
+.enviar-respuesta {
+    background-color: var(--green) !important;
+    transition: .2s;
+
+    &:hover {
+        background-color: var(--dark-green) !important;
+    }
+}
