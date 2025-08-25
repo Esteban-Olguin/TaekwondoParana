@@ -23,7 +23,6 @@ class MyHeader extends HTMLElement {
                   </a>
                   <ul class="dropdown-menu bg-light" aria-labelledby="formacionDropdown">
                     <li><a class="dropdown-item" href="/content/teoria.html">Teoría del Taekwondo</a></li>
-                    <li><a class="dropdown-item" href="/content/evaluaciones.html">Evaluaciones</a></li>
                     <li><a class="dropdown-item" href="/content/foro.html">Foro</a></li>
                   </ul>
                 </li>
